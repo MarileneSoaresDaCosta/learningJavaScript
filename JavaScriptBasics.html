@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+<body>
+<div class="container">
+	<h2>JavaScript Basics Part I</h2>
+	<br>
+
+<!-- empty html tag get's populated when button below is clicked -->
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+
+<!-- the paragraph content will change when the button is clicked -->
+<p id="demo2">JavaScript can change HTML content.</p>
+<button type="button" onclick='document.getElementById("demo2").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+
+<p>JavaScript can change HTML attributes.</p>
+<p>In this case JavaScript changes the src (source) attribute of an image.</p>
+<button onclick="document.getElementById('myImage').src='pictures/bulb_on.png'">Turn on the light</button>
+
+<img id="myImage" src="pictures/bulb_off.png" style="max-width:80px">
+
+<button onclick="document.getElementById('myImage').src='pictures/bulb_off.png'">Turn off the light</button>
+
+<p id="demo3">JavaScript can change the style of an HTML element (CSS).</p>
+
+<button type="button" onclick="document.getElementById('demo3').style.fontSize='35px'">Change font size</button>
+<br>
+<br>
+<p id="demo4">JavaScript can hide HTML elements.</p>
+
+<button type="button" onclick="document.getElementById('demo4').style.display='none'">Click Me!</button>
+<br>
+<p>JavaScript can show hidden HTML elements.</p>
+<p id="demo5" style="display:none">Hello JavaScript!</p>
+<button type="button" onclick="document.getElementById('demo5').style.display='block'">Show hidden element</button>
+
+<p> Four ways to display 'data', by writing into: </p>
+<p> HTML element, using innerHTML: </p>
+<p id="demo6"></p>
+<script>
+document.getElementById("demo6").innerHTML = 5 + 6;
+</script>
+<br>
+<p> HTML output, using document.write(): </p>
+<script>
+document.write(5 + 6);
+</script>
+<p> OBS: Using document.write() after an HTML document is fully loaded, will delete all existing HTML. <span style="font-weight: bold" > The document.write() method should only be used for testing. </span> </p>
+
+<br>
+<p> using window.alert(): </p>
+<!-- <script>
+window.alert(5 + 6);
+</script> -->
+
+<br>
+<p>For debugging purposes, you can use the console.log() method to display data. To check, right click and choose inspect element (Chrome)</p>
+<script>
+console.log(5 + 6);
+</script>
+
+<h3>Sintax - JavaScript Statements</h3>
+
+<p>Statements are separated by semicolons.</p>
+
+<p>In the script below, the first statement declares the variables x, y, and z.</p>
+
+<p>The second statement assigns the literal value 5 to x.</p>
+
+<p>The third statement assigns the literal value 6 to y.</p>
+
+<p>Then x an y are added and assigned to z.</p>
+
+<p>Finally the value of z is displayed in the paragraph below:</p>
+
+<p id="demo7"></p>
+
+<script>
+var x, y, z;
+x = 5;
+y = 6;
+z = x + y;
+document.getElementById("demo7").innerHTML = z;
+</script>
+
+<h3> JavaScript Identifiers (names). </h3>
+<p> In JavaScript, identifiers are used to name variables (and keywords, and functions, and labels). The rules for legal names are much the same in most programming languages. <span style="font-weight: bold"> In JavaScript, the first character must be a letter, or an underscore (_), or a dollar sign ($). </span> Subsequent characters may be letters, digits, underscores, or dollar signs. <span style="font-weight: bold"> Numbers are not allowed as the first character. </span> This way JavaScript can easily distinguish identifiers from numbers. All JavaScript identifiers are  <span style="font-weight: bold">case sensitive. </span>Also, Hyphens are not allowed in JavaScript. It is reserved for subtractions. So, "first-name" is illegal, but "first_name" is ok.</p>
+<p> If a JavaScript statement does not fit on one line, the best place to break it, is after an operator. For example: </p>
+<p>document.getElementById("demo").innerHTML =</p>
+<p>"Hello Dolly!";</p>
+
+<h3>JS Keywords</h3>
+<img id='keywords' src="jsKeywords.png">
+<br>
+<img id='compOp' src="jsCompOper.png">
+<br>
+<br>
+<p> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html> 

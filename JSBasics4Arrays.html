@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <style>
+      #explanation {
+          background-color: lightgrey;
+      } 
+    </style>
+
+  </head>
+  <body>
+    
+    <div class="container">
+    <br>
+    <h3 class="display-6">JS Arrays </h3>
+    <p id="explanation">The best way to loop through an array is using a standard for loop:</p>
+
+    <p id="demo"></p>
+
+    <script>
+    var fruits, text, fLen, i;
+
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fLen = fruits.length;
+    text = "<ul>";
+    for (i = 0; i < fLen; i++) {
+        text += "<li>" + fruits[i] + "</li>";
+    }
+    text += "</ul>";
+    document.getElementById("demo").innerHTML = text;
+    </script>
+
+
+    <p id="explanation">The new ECMASCRIPT 5 method isArray returns true when used on an array:</p>
+
+    <p id="demo2"></p>
+
+    <script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo2").innerHTML = Array.isArray(fruits);
+    </script>
+
+    <p id="explanation">This "home made" isArray() function returns true when used on an array, or more precisely, it returns true if the object prototype contains the word "Array".</p>
+    <p id="demo3"></p>
+    <script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo3").innerHTML = isArray(fruits);
+
+    function isArray(myArray) {
+        return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+    </script>
+    <p> testing</p>
+    <p id="demo4"></p>
+    <script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];  
+    var t = fruits.constructor.toString().indexOf("Array");
+    document.getElementById("demo4").innerHTML = t;
+    </script>
+
+
+    <p id="explanation">The instanceof operator returns true when used on an array:</p>
+
+    <p id="demo5"></p>
+
+    <script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo5").innerHTML = fruits instanceof Array;
+    </script>
+
+<p id="explanation">The splice() method adds new elements to an array.</p>
+<p>original array: fruits = ["Banana", "Orange", "Apple", "Mango"]</p>
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo6"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo6").innerHTML = fruits;
+function myFunction() {
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+    document.getElementById("demo6").innerHTML = fruits;
+}
+</script>
+
+<p id="explanation">The sort() method sorts an array alphabetically.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo7"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo7").innerHTML = fruits;
+
+function myFunction() {
+    fruits.sort();
+    document.getElementById("demo7").innerHTML = fruits;
+}
+</script>
+
+<p>Click the buttons to sort the array alphabetically or numerically.</p>
+
+<button onclick="myFunction1()">Sort Alphabetically</button>
+<button onclick="myFunction2()">Sort Numerically</button>
+
+<p id="demo8"></p>
+
+<script>
+var points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo8").innerHTML = points;    
+
+function myFunction1() {
+    points.sort();
+    document.getElementById("demo8").innerHTML = points;
+}
+function myFunction2() {
+    points.sort(function(a, b){return a - b});
+    document.getElementById("demo8").innerHTML = points;
+}
+</script>
+
+
+<p>Please input a number between 5 and 10:</p>
+
+<input id="demo9" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="message"></p>
+
+<script>
+function myFunction() {
+    var message, x;
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    x = document.getElementById("demo9").value;
+    try { 
+        if(x == "")  throw "empty";
+        if(isNaN(x)) throw "not a number";
+        x = Number(x);
+        if(x < 5)    throw "too low";
+        if(x > 10)   throw "too high";
+    }
+    catch(err) {
+        message.innerHTML = "Input is " + err;
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+      #explanation {
+          background-color: linen;
+      } 
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+    <br>
+    <h3 class="display-6">JavaScript Basics: Strings and Numbers</h3>
+    <p id="explanation">The length property returns the length of a string:</p>
+    <p id="demo"></p>
+    <script>
+    var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    document.getElementById("demo").innerHTML = txt.length;
+    </script>
+
+    <p id="explanation">The indexOf() method returns the position of the first occurrence of a specified text:</p>
+    <p id="demo2"></p>
+    <script>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.indexOf("locate");
+    document.getElementById("demo2").innerHTML = pos;
+    </script>
+
+    <p id="explanation">The lastIndexOf() method returns the position of the last occurrence of a specified text:</p>
+    <p id="demo3"></p>
+    <script>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.lastIndexOf("locate");
+    document.getElementById("demo3").innerHTML = pos;
+    </script>
+
+    <p id="explanation">The search() method returns the position of the first occurrence of a specified text in a string:</p>
+    <p id="demo4"></p>
+    <script>
+    var str = "Please locate where 'locate' occurs!";
+    var pos = str.search("locate");
+    document.getElementById("demo4").innerHTML = pos;
+    </script>
+
+    
+    <p>The methods indexOf() and search() are quite equal. These are the differences:</p>
+    <ul>
+      <li>The search() method cannot take a second start position argument.</li>
+      <li>The search() method can take much more 
+    powerful search values (regular expressions).</li>
+    </ul>
+
+    <h4>Extracting String Parts</h4>
+    <p>There are 3 methods for extracting a part of a string:</p>
+    <ul>
+      <li>slice(start, end)</li>
+      <li>substring(start, end)</li>
+      <li>substr(start, length)</li>
+    </ul>
+
+<p id="explanation">The slice() method extract a part of a string
+and returns the extracted parts in a new string. If a parameter is negative, the position is counted from the end of the string. If you omit the second parameter, the method will slice out the rest of the string.</p>
+<p id="demo5"></p>
+<script>
+var str = "Apple, Banana, Kiwi";
+var res = str.slice(7,13);
+document.getElementById("demo5").innerHTML = res; 
+</script>
+<p> using negative parameters:</p>
+<p id="demo6"></p>
+<script>
+var str = "Apple, Banana, Kiwi";
+var res = str.slice(-12,-6);
+document.getElementById("demo6").innerHTML = res;
+</script>
+
+<p id="explanation"> substring() is similar to slice().The difference is that substring() cannot accept negative indexes.</p>
+<p id="demo7"></p>
+<script>
+var str = "Apple, Banana, Kiwi";
+var res = str.substring(7,13);
+document.getElementById("demo7").innerHTML = res;
+</script>
+
+<p id="explanation"> The substr() is similar to slice(). The difference is that the second parameter specifies the length of the extracted part.</p>
+<p id= "explanation"> If the first parameter is negative, the position counts from the end of the string. The second parameter can not be negative, because it defines the length.
+If you omit the second parameter, substr() will slice out the rest of the string. </p>
+<p id="demo8"></p>
+<script>
+var str = "Apple, Banana, Kiwi";
+var res = str.substr(7,6);
+document.getElementById("demo8").innerHTML = res;
+</script>
+
+
+<p id="demo9"></p>
+
+<script>
+var str = "Hello";
+var arr = str.split("");
+var text = "";
+var i;
+for (i = 0; i < arr.length; i++) {
+    text += arr[i] + "<br>"
+}
+document.getElementById("demo9").innerHTML = text;
+</script>
+
+
+<p>If you use NaN in a mathematical operation, the result can be a concatenation:</p>
+
+<p id="demo10"></p>
+
+<script>
+var x = NaN;
+var y = "5";
+document.getElementById("demo10").innerHTML = x + y;
+</script>
+
+
+<p id="explanation">Infinity is returned if you calculate a number outside the largest possible number:</p>
+
+<p id="demo11"></p>
+
+<script>
+var myNumber = 2; 
+var txt = "";
+while (myNumber != Infinity) {
+   myNumber = myNumber * myNumber;
+   txt = txt + myNumber + "<br>";
+}
+document.getElementById("demo11").innerHTML = txt;
+</script>
+
+<p id="explanation">Never write a number with a leading zero (like 07). Some JavaScript versions interpret numbers as octal if they are written with a leading zero. The toString() method can output numbers as base 16 (hex), base 8 (octal), or base 2 (binary).</p>
+
+<p id="demo12"></p>
+
+<script>
+var myNumber = 128;
+document.getElementById("demo12").innerHTML = "128 = " + 
+myNumber + " Decimal, " +
+myNumber.toString(16) + " Hexadecimal, " +
+myNumber.toString(8) + " Octal, " +
+myNumber.toString(2) + " Binary."
+</script>
+
+<p id="explanation">The toExponential() method returns a <span style="font-weight:bold"> string</span>, with the number rounded and written using exponential notation. An optional parameter defines the number of digits behind the decimal point.</p>
+<p> var x=9.656.</p> 
+
+<p id="demo13"></p>
+
+<script>
+var x = 9.656;
+document.getElementById("demo13").innerHTML =
+    "x.toExponential() = " + x.toExponential() + "<br>" + 
+    "x.toExponential(1) = " + x.toExponential(1) + "<br>" + 
+    "x.toExponential(2) = " + x.toExponential(2) + "<br>" + 
+    "x.toExponential(4) = " + x.toExponential(4) + "<br>" + 
+    "x.toExponential(6) = " + x.toExponential(6);
+</script>
+
+<p>The toFixed() method rounds a number to a given number of digits.</p>
+<p>For working with money, toFixed(2) is perfect.</p>
+
+<p id="demo14"></p>
+
+<script>
+var x = 9.656;
+document.getElementById("demo14").innerHTML =
+    x.toFixed(0) + "<br>" +
+    x.toFixed(2) + "<br>" +
+    x.toFixed(4) + "<br>" +
+    x.toFixed(6);
+</script>
+
+<p id="explanation">The toPrecision() method returns a string, with a number written with a specified length:</p>
+
+<p id="demo15"></p>
+
+<script>
+var x = 9.656;
+document.getElementById("demo15").innerHTML = 
+    x.toPrecision() + "<br>" +
+    x.toPrecision(2) + "<br>" +
+    x.toPrecision(4) + "<br>" +
+    x.toPrecision(6);    
+</script>
+<p> Converting variables to numbers</p>
+<p id="explanation">The global JavaScript function Number() converts variables to numbers:</p>
+
+<p id="demo16"></p>
+
+<script>
+document.getElementById("demo16").innerHTML = 
+    Number(true) + "<br>" +
+    Number(false) + "<br>" +
+    Number(new Date()) + "<br>" +
+    Number("  10") + "<br>" +
+    Number("10  ") + "<br>" +
+    Number("10 6");    
+</script>
+
+<p id="explanation">The global JavaScript function parseInt() converts strings to numbers. Spaces are allowed. Only the first number is returned:</p>
+
+<p id="demo17"></p>
+
+<script>
+document.getElementById("demo17").innerHTML = 
+    parseInt("10") + "<br>" +
+    parseInt("10.33") + "<br>" +
+    parseInt("10 6") + "<br>" +    
+    parseInt("10 years") + "<br>" +    
+    parseInt("years 10");    
+</script>
+
+<p id="explanation">The global JavaScript function parseFloat() converts strings to numbers:</p>
+
+<p id="demo18"></p>
+
+<script>
+document.getElementById("demo18").innerHTML = 
+    parseFloat("10") + "<br>" +
+    parseFloat("10.33") + "<br>" +
+    parseFloat("10 6") + "<br>" +    
+    parseFloat("10 years") + "<br>" +
+    parseFloat("years 10");        
+</script>
+
+<h2>Number Properties</h2>
+<table class="w3-table-all notranslate">
+  <tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>MAX_VALUE</td>
+    <td>Returns the largest number possible in JavaScript</td>
+  </tr>
+  <tr>
+    <td>MIN_VALUE</td>
+    <td>Returns the smallest number possible in JavaScript</td>
+  </tr>
+  <tr>
+    <td>NEGATIVE_INFINITY</td>
+    <td>Represents negative infinity (returned on overflow)</td>
+    </tr>
+  <tr>
+    <td>NaN</td>
+    <td>Represents a "Not-a-Number" value</td>
+    </tr>
+  <tr>
+    <td>POSITIVE_INFINITY</td>
+    <td>Represents infinity (returned on overflow)</td>
+  </tr>
+  </table>
+  <br>
+<p id="explanation">Number properties belongs to the JavaScript's number object wrapper called Number. These properties can only be accessed as Number.MAX_VALUE. Using myNumber.MAX_VALUE, where myNumber is a variable, expression, or value, will return undefined: </p>
+
+<p id="demo19"></p>
+
+<script>
+document.getElementById("demo19").innerHTML = Number.MAX_VALUE;
+</script>
+
+<p id="demo20"></p>
+
+<script>
+var x = 6;
+document.getElementById("demo20").innerHTML = x.MAX_VALUE;
+</script>
+
+<p id="demo21"></p>
+
+<script>
+var x = 2;
+document.getElementById("demo21").innerHTML = Math.exp(x);
+</script>
+
+<p id="explanation">Math.floor(Math.random() * 10) returns a random integer between 0 and 9 (both included).</p>
+
+<p id="demo22"></p>
+
+<script>
+document.getElementById("demo22").innerHTML =
+Math.floor(Math.random() * 10);
+</script>
+
+<p>Every time you click the button, getRndInteger(min, max) returns a random number between 1 and 10 (both included):</p>
+
+<button onclick="document.getElementById('demo23').innerHTML = getRndInteger(1,10)">Click Me</button>
+
+<p id="demo23"></p>
+
+<script>
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

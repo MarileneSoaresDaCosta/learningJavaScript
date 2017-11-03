@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+      #explanation {
+          background-color: lightgrey;
+      } 
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+    <br>
+    <h3 class="display-6">JavaScript Basics 3: Dates</h3>
+    <br>
+    
+    <p> There are 4 ways of initiating a date:</p>
+    <ul>
+      <li> new Date() </li>
+      <li> new Date(milliseconds) </li>
+      <li> new Date(dateString) </li>
+      <li> new Date(year, month, day, hours, minutes, seconds, milliseconds) </li>
+    </ul>
+    <p id="explanation"> Using new Date(), creates a new date object with the current date and time:</p>
+    <p> var d = new Date();</p>
+    <p> document.getElementById("demo").innerHTML = d;>> <span id="demo"></span> </p>
+
+    <script>
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d;
+    </script>
+    <p id="explanation"> Using new Date(date string), creates a new date object from the specified date and time:</p>
+    <p id="demo2"></p>
+
+    <script>
+    var d = new Date("October 13, 2014 11:13:00");
+    document.getElementById("demo2").innerHTML = d;
+    </script>
+
+    <p id="explanation"> Using new Date(number), creates a new date object as zero time plus the number. Zero time is 01 January 1970 00:00:00 UTC. The number is specified in milliseconds: (One day contains 86,400,000 milliseconds.)</p>
+    <p id="demo3"></p>
+
+    <script>
+    var d = new Date(86400000);
+    document.getElementById("demo3").innerHTML = d;
+    </script>
+
+    <p id="explanation"> <span style="font-weight: bold">Attention: JS considers a months array starting with zero, so Jan is 0, Feb is 1 and so on... </span> Using new Date(7 numbers), creates a new date object with the specified date and time. The 7 numbers specify the year, month, day, hour, minute, second, and millisecond, in that order:</p>
+
+    <p id="demo4"></p>
+
+    <script>
+    var d = new Date(99,5,24,11,33,30,0);
+    document.getElementById("demo4").innerHTML = d;
+    </script>
+
+<p id="explanation">The toDateString() method converts a date to a more readable format:</p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<script>
+var d = new Date();
+document.getElementById("demo5").innerHTML = d.toDateString();
+document.getElementById("demo6").innerHTML = d.getMonth();
+</script>
+
+<p id="explanation">The setDate() method can be used to add days to a date.</p>
+
+<p id="demo7"></p>
+
+<script>
+var d = new Date();
+d.setDate(d.getDate() + 50);
+document.getElementById("demo7").innerHTML = d;
+</script>
+
+<p id="explanation">Date.parse() returns the number of milliseconds between the date and January 1, 1970:</p>
+
+<p id="demo8"></p>
+
+<script>
+var msec = Date.parse("March 21, 2012");
+document.getElementById("demo8").innerHTML = msec;
+</script>
+<p id="explanation"> Dates can easily be compared. The following example compares today's date with January 14, 2100:</p>
+<p id="demo9"></p>
+
+<script>
+var today, someday, text;
+today = new Date();
+someday = new Date();
+someday.setFullYear(2100, 0, 14);
+
+if (someday > today) {
+    text = "Today is before January 14, 2100.";
+} else {
+    text = "Today is after January 14, 2100.";
+}
+document.getElementById("demo9").innerHTML = text;
+</script>
+
+
+
+
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
